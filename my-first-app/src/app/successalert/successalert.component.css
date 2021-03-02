@@ -1,4 +1,7 @@
 h2 {
-  color: green;
   font-family: monospace;
+  background-color: seagreen;
+  border: 3px;
+  border-style: solid;
+  border-color: green;
 }
