@@ -11,8 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created';
-  serverName = 'Two way binding'
-  userName = '';
+  serverName = '';
+  serverCreated = false;
+  servers = ['Testserver', 'Testserver2']
+  numberOfTunas = []
+  showTuna = false;
 
   constructor() {
     setTimeout(() => {
@@ -23,15 +26,19 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  resetUserName(){
-    this.userName = '';
+  toggleTuna(){
+    this.showTuna = !this.showTuna;
+    this.numberOfTunas.push(this.numberOfTunas.length + 1)
+    console.log(this.numberOfTunas);
   }
-
   onCreateServer(){
     this.serverCreationStatus = 'Server was created! ' + this.serverName;
+    this.servers.push(this.serverName);
+    this.serverCreated = true;
   }
 
   onUpdateServerName(event: Event){
     this.serverName = (<HTMLInputElement>event.target).value;
   }
+  
 }
