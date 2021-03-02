@@ -12,6 +12,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created';
   serverName = 'Two way binding'
+  userName = '';
 
   constructor() {
     setTimeout(() => {
@@ -22,8 +23,12 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  resetUserName(){
+    this.userName = '';
+  }
+
   onCreateServer(){
-    this.serverCreationStatus = 'Server was created!'
+    this.serverCreationStatus = 'Server was created! ' + this.serverName;
   }
 
   onUpdateServerName(event: Event){
